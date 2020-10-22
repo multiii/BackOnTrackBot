@@ -4,6 +4,20 @@ const PREFIX = "!"
 const bot = new Discord.Client();
 const token = process.env.DISCORD_BOT_SECRET;
 
+// Episode 5 ->
+
+const fs = require('fs');
+bot.commands = new Discord.Collection();
+
+const commandFiles = fs.readdirSync('./src').filter(file => file.endsWith('.js'));
+for (const file of commandFiles) {
+  const command = require(`./src/${file}`);
+
+  bot.commands.set(command.name, command);
+}
+
+// ... <-
+
 bot.on('ready', () => {
 console.log("Online")
 
@@ -18,46 +32,24 @@ let command = args.shift().toLowerCase()
 // Episode 2 ->
 
 if (command === "ping"){ 
-  if (!args.length){
-    message.channel.send("Ping!")
-  }
-  else if (args[0] === "pong"){
-  message.reply("Pong!")
-  }
+  bot.commands.get('ping').execute(message, args)
 }
 
 if (command === "beep"){
-  message.reply("Boop!")
+ bot.commands.get('beep').execute(message, args)
 }
 
 // Episode 3 ->
 
 if (command === "agl"){
-  if(!args.length) {
-    message.channel.send('You need to provide the args')
-  }
-  else if (args[0] && args[1] && args[2]){
-    message.channel.send(`So you are a ${args[0]} year old ${args[1]} living in ${args[2]}`)
-  }
+  bot.commands.get('agl').execute(message, args)
 }
 
 // Episode 4 ->
 
 if (command === 'embed') {
 
-  const embedTutorial = new Discord.MessageEmbed()
-  .setTitle("Title")
-  .setDescription("Description")
-  .setColor("GREEN")
-  .addField("Field Title", "Field Value", true)
-  .addField("Field Title2", "Field Value2", true)
-  .addField("Field Title3", "Field Value3", true)
-  .setImage("https://pmcvariety.files.wordpress.com/2018/05/discord-logo.jpg?w=600")
-  .setAuthor("Author", "https://pmcvariety.files.wordpress.com/2018/05/discord-logo.jpg?w=600")
-  .setFooter("Footer")
-  .setTimestamp()
-
-  message.channel.send(embedTutorial)
+  bot.commands.get('embed').execute(message, args, Discord)
 
 }
 
