@@ -17,7 +17,7 @@ module.exports = {
     let randNo = Math.round(Math.random() * max + min)
 
     const embed = new Discord.MessageEmbed()
-    .setTitle("You random number is: ")
+    .setTitle("Your random number is: ")
     .setDescription(randNo)
     .setColor("YELLOW")
     .setFooter("Random Number Generator")
