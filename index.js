@@ -12,7 +12,6 @@ bot.commands = new Discord.Collection();
 const commandFiles = fs.readdirSync('./src').filter(file => file.endsWith('.js'));
 for (const file of commandFiles) {
   const command = require(`./src/${file}`);
-
   bot.commands.set(command.name, command);
 }
 
@@ -51,6 +50,12 @@ if (command === 'embed') {
 
   bot.commands.get('embed').execute(message, args, Discord)
 
+}
+
+// Episode 6 ->
+
+if (command === "rand") {
+  bot.commands.get('rand').execute(message, args, Discord)
 }
 
 
