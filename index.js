@@ -58,6 +58,11 @@ if (command === "rand") {
   bot.commands.get('rand').execute(message, args, Discord)
 }
 
+// Episode 7 ->
+
+if (command === "math") {
+  bot.commands.get('math').execute(message, args)
+}
 
 });
 bot.login(token);
