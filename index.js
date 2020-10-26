@@ -64,5 +64,11 @@ if (command === "math") {
   bot.commands.get('math').execute(message, args)
 }
 
+// Episode 8 ->
+
+if (command === "8ball") {
+  bot.commands.get('8ball').execute(message, args)
+}
+
 });
 bot.login(token);
