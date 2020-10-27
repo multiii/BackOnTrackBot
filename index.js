@@ -1,8 +1,10 @@
 const Discord = require('discord.js');
 const keep_alive = require('./keep_alive.js')
-const PREFIX = "!"
+let PREFIX
 const bot = new Discord.Client();
 const token = process.env.DISCORD_BOT_SECRET;
+
+const db = require('quick.db')
 
 // Episode 5 ->
 
@@ -14,6 +16,20 @@ for (const file of commandFiles) {
   const command = require(`./src/${file}`);
   bot.commands.set(command.name, command);
 }
+
+// Episode 9 ->
+
+bot.on('message', async message => {
+
+  if (db.get(`prefix_${message.guild.id}`) === null) {
+    PREFIX = "!"
+  }
+
+  else {
+    PREFIX = db.get(`prefix_${message.guild.id}`)
+  }
+
+})
 
 // ... <-
 
@@ -68,6 +84,12 @@ if (command === "math") {
 
 if (command === "8ball") {
   bot.commands.get('8ball').execute(message, args)
+}
+
+// Episode 9 ->
+
+if (command === "prefix") {
+  bot.commands.get('prefix').execute(message, args, db)
 }
 
 });
