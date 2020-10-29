@@ -4,6 +4,10 @@ let PREFIX
 const bot = new Discord.Client();
 const token = process.env.DISCORD_BOT_SECRET;
 
+const ms = require('parse-ms')
+
+const cooldown = new Set();
+
 const db = require('quick.db')
 
 // Episode 5 ->
@@ -91,6 +95,45 @@ if (command === "8ball") {
 if (command === "prefix") {
   bot.commands.get('prefix').execute(message, args, db)
 }
+
+// Episode 10 ->
+
+if (command === "start") {
+  bot.commands.get('start').execute(message, args, db)
+}
+
+if (command === "bal") {
+  bot.commands.get('bal').execute(message, args, db, Discord, PREFIX)
+}
+
+if (command === "daily"){
+
+  if (cooldown.has(`daily_${message.author.id}`)) {
+    message.channel.send("You will have to wait until tomorrow")
+  }
+
+  else {
+
+
+  bot.commands.get('daily').execute(message, args, db)
+  cooldown.add(`daily_${message.author.id}`)
+
+  setTimeout(() => {
+    cooldown.delete(`daily_${message.author.id}`)
+  }, 8.64e+7)
+
+  }
+}
+
+if (command === "buy") {
+  bot.commands.get('buy').execute(message, args, db)
+}
+
+if (command === "test") {
+  bot.commands.get('test').execute(message, args, db)
+}
+
+// ... <-
 
 });
 bot.login(token);
