@@ -1,4 +1,4 @@
-// Episode 10 ->
+// Episode 10 -> [Changes made for Episode 11]
 
 module.exports = {
   name: 'buy',
@@ -13,18 +13,14 @@ module.exports = {
 
     else {
 
-      if (item === "water_bottle") {
-        db.push(`user_${message.author.id}.inv`, "Water_Bottle")
-        message.channel.send("You have bought a water bottle!")
-      }
-
-      else if (item === "pencil") {
-        db.push(`user_${message.author.id}.inv`, "Pencil")
-        message.channel.send("You have bought a pencil!")
-      }
-
-      else {
-        message.reply("We don't sell that here")
+      if (item === "sword") {
+        if (db.get(`user_${message.author.id}.inv.weapon`) === "Sword") {
+          message.reply("You already have this item")
+        }
+        else {
+        db.set(`user_${message.author.id}.inv.weapon`, "Sword")
+        message.channel.send("You have obtained a sword.")
+        }
       }
 
     }

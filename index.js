@@ -135,5 +135,17 @@ if (command === "test") {
 
 // ... <-
 
+// Episode 11 ->
+
+if (command === "attack") {
+  bot.commands.get('attack').execute(message, args, db)
+}
+
+if (command === "info") {
+  bot.commands.get('info').execute(message, args, db, Discord)
+}
+
+// ... <-
+
 });
 bot.login(token);

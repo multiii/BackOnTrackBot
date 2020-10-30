@@ -1,4 +1,4 @@
-// Episode 10 ->
+// Episode 10 -> [Changes made for Episode 11]
 
 module.exports = {
   name: 'start',
@@ -7,7 +7,7 @@ module.exports = {
 
     if (db.get(`user_${message.author.id}.bal`) === null) {
 
-    db.set(`user_${message.author.id}`, { bal: 0, xp: 0, inv: [] })
+    db.set(`user_${message.author.id}`, { bal: 0, xp: 0, inv: { weapon: "" } })
     message.reply("An account has been created for you.")
 
     }
