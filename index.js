@@ -147,5 +147,22 @@ if (command === "info") {
 
 // ... <-
 
+// Episode 12 ->
+
+if (command === "kick") {
+  bot.commands.get('kick').execute(message, args, Discord)
+}
+
+if (command === "ban") {
+  bot.commands.get("ban").execute(message, args, Discord)
+}
+
+if (command === "addrole")
+{
+  bot.commands.get("addrole").execute(message, args)
+}
+
+// ... <-
+
 });
 bot.login(token);
