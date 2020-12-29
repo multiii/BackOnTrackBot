@@ -1,14 +1,13 @@
 const Discord = require('discord.js');
 const keep_alive = require('./keep_alive.js')
-let PREFIX
+const weather = require('weather-js')
 const bot = new Discord.Client();
 const token = process.env.DISCORD_BOT_SECRET;
-
 const ms = require('parse-ms')
-
 const cooldown = new Set();
-
 const db = require('quick.db')
+
+let PREFIX
 
 // Episode 5 ->
 
@@ -157,12 +156,18 @@ if (command === "ban") {
   bot.commands.get("ban").execute(message, args, Discord)
 }
 
-if (command === "addrole")
-{
+if (command === "addrole") {
   bot.commands.get("addrole").execute(message, args)
 }
 
 // ... <-
+
+// Episode 13 ->
+
+if (command === "weather") {
+  bot.commands.get("weather").execute(message, args, Discord, weather)
+}
+
 
 });
 bot.login(token);
