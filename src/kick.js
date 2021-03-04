@@ -1,3 +1,5 @@
+// Episode 12 ->
+
 module.exports = {
   name: 'kick',
   description: "Used to kick members out of a server",

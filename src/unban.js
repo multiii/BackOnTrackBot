@@ -1,8 +1,8 @@
-// Episode 12 ->
+// Episode 14 ->
 
 module.exports = {
-  name: 'ban',
-  description: "Used to ban members from a server",
+  name: 'unban',
+  description: "Used to unban members from a server",
   async execute(bot, message, args, Discord) {
 
     if (!(message.member.roles.cache.some(r => r.id === "783700556472254525"))) return
@@ -22,15 +22,15 @@ module.exports = {
       }
 
       const embed = new Discord.MessageEmbed()
-      .setTitle(`${user.username} was banned!`)
-      .setDescription(`${user.username} was banned by ${message.author.username} for: ${reason}`)
+      .setTitle(`${user.username} was unbanned!`)
+      .setDescription(`${user.username} was unbanned by ${message.author.username} for: ${reason}`)
       .setColor("GREEN")
-      .setFooter("Ban Command")
+      .setFooter("Unban Command")
       .setTimestamp()
 
       message.channel.send(embed)
 
-      message.guild.members.ban(user)
+      message.guild.members.unban(user)
 
   }
 }

@@ -153,7 +153,7 @@ if (command === "kick") {
 }
 
 if (command === "ban") {
-  bot.commands.get("ban").execute(message, args, Discord)
+  bot.commands.get("ban").execute(bot, message, args, Discord)
 }
 
 if (command === "addrole") {
@@ -167,6 +167,24 @@ if (command === "addrole") {
 if (command === "weather") {
   bot.commands.get("weather").execute(message, args, Discord, weather)
 }
+
+// ... <-
+
+// Episode 14 ->
+
+if (command === "removerole") {
+  bot.commands.get("removerole").execute(message, args)
+}
+
+if (command === "unban") {
+  bot.commands.get("unban").execute(bot, message, args, Discord)
+}
+
+if (command === "purge") {
+  bot.commands.get("purge").execute(message, args)
+}
+
+// ... <-
 
 
 });
