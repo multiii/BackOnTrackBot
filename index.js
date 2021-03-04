@@ -168,8 +168,6 @@ if (command === "weather") {
   bot.commands.get("weather").execute(message, args, Discord, weather)
 }
 
-// ... <-
-
 // Episode 14 ->
 
 if (command === "removerole") {
@@ -186,6 +184,11 @@ if (command === "purge") {
 
 // ... <-
 
+// Episode 15 ->
+
+if (command === "help") {
+  bot.commands.get("help").execute(bot, message, args, Discord, commandFiles)
+}
 
 });
 bot.login(token);
