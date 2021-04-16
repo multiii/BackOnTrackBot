@@ -190,5 +190,17 @@ if (command === "help") {
   bot.commands.get("help").execute(bot, message, args, Discord, commandFiles)
 }
 
+if (command === "add") {
+  bot.commands.get("add").execute(message, args, db)
+}
+
+if (command === "subtract") {
+  bot.commands.get("subtract").execute(message, args, db)
+}
+
+if (command === "give") {
+  bot.commands.get("give").execute(message, args, db)
+}
+
 });
 bot.login(token);
