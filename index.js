@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+ const Discord = require('discord.js');
 const keep_alive = require('./keep_alive.js')
 const weather = require('weather-js')
 const bot = new Discord.Client();
@@ -190,6 +190,8 @@ if (command === "help") {
   bot.commands.get("help").execute(bot, message, args, Discord, commandFiles)
 }
 
+// Episode 16 -> 
+
 if (command === "add") {
   bot.commands.get("add").execute(message, args, db)
 }
@@ -198,9 +200,19 @@ if (command === "subtract") {
   bot.commands.get("subtract").execute(message, args, db)
 }
 
+// ... <-
+
+// Episode 17 ->
+
 if (command === "give") {
   bot.commands.get("give").execute(message, args, db)
 }
+
+if (command === "meme") {
+  bot.commands.get("meme").execute(message, args, Discord)
+}
+
+// ... <-
 
 });
 bot.login(token);
