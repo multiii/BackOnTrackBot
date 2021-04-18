@@ -202,17 +202,15 @@ if (command === "subtract") {
 
 // ... <-
 
-// Episode 17 ->
-
 if (command === "give") {
   bot.commands.get("give").execute(message, args, db)
 }
 
+// Episode 17 ->
+
 if (command === "meme") {
   bot.commands.get("meme").execute(message, args, Discord)
 }
-
-// ... <-
 
 });
 bot.login(token);
