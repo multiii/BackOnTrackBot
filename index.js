@@ -190,6 +190,8 @@ if (command === "help") {
   bot.commands.get("help").execute(bot, message, args, Discord, commandFiles)
 }
 
+// Episode 16 ->   
+  
 if (command === "add") {
   bot.commands.get("add").execute(message, args, db)
 }
@@ -201,6 +203,8 @@ if (command === "subtract") {
 if (command === "give") {
   bot.commands.get("give").execute(message, args, db)
 }
+  
+// ... <-
 
 });
 bot.login(token);
