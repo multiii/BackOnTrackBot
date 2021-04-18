@@ -1,4 +1,4 @@
- const Discord = require('discord.js');
+const Discord = require('discord.js');
 const keep_alive = require('./keep_alive.js')
 const weather = require('weather-js')
 const bot = new Discord.Client();
