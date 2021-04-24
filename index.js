@@ -4,6 +4,7 @@ const weather = require('weather-js')
 const bot = new Discord.Client();
 const token = process.env.DISCORD_BOT_SECRET;
 const ms = require('parse-ms')
+const m = require("ms")
 const cooldown = new Set();
 const db = require('quick.db')
 
@@ -210,6 +211,12 @@ if (command === "give") {
 
 if (command === "meme") {
   bot.commands.get("meme").execute(message, args, Discord)
+}
+
+// Episode 18 ->
+
+if (command === "giveaway") {
+  bot.commands.get("giveaway").execute(message, args, Discord, m)
 }
 
 });

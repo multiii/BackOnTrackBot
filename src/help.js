@@ -9,7 +9,6 @@ module.exports = {
     .setTitle('Help Command')
     .setDescription("List of all Commands")
     .setColor("#00ff00")
-    .setTimestamp()
 
     for (let file of commandFiles) {
 
